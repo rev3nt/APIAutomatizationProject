@@ -25,3 +25,11 @@ class Test_create_place():
         print("Метод GET PUT")
         # Вызываем метод GET для подтверждения изменения ресурса
         get_response: Response = GoogleMapsApi.get_place(place_id)
+
+        print("Метод DELETE")
+        # Удаляем созданный ресурс с помощью DELETE
+        delete_response: Response = GoogleMapsApi.delete_place(place_id)
+
+        print("Метод GET DELETE")
+        # Пробуем получить удаленный ресурс
+        get_response: Response = GoogleMapsApi.get_place(place_id)

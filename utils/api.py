@@ -74,3 +74,23 @@ class GoogleMapsApi:
 
         # Возвращаем ответ сервера на PUT запрос
         return put_response
+
+    @staticmethod
+    def delete_place(place_id):
+        # Ссылка на ресурс для удаления
+        resource_url = "/maps/api/place/delete/json"
+        # Собираем ссылку для выполнения DELETE
+        delete_url = base_url + resource_url + key
+        print(delete_url)
+
+        # Тело запроса с нужным place_id
+        body = {
+            "place_id": place_id,
+        }
+
+        # Отправляем запрос на удаление по сформированному URL и body
+        delete_response = HttpMethods.delete(delete_url, body)
+        print(delete_response.text)
+
+        # Возвращаем ответ сервера
+        return delete_response
