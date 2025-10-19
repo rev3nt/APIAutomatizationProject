@@ -3,7 +3,17 @@ from utils.api import GoogleMapsApi
 
 
 class Test_create_place():
-    # Шаг теста - создание новой локации
+    # Создание новой локации
     def test_create_new_place(self):
+        print("Метод POST")
         # Сохраняем ответ сервера, создав новую локацию
         post_response: Response = GoogleMapsApi.create_new_place()
+
+        # Преобразуем ответ в json
+        check_post = post_response.json()
+        # Извлекаем из него id созданного места
+        place_id = check_post.get('place_id')
+
+        print("Метод GET")
+        # Вызываем метод GET для подтверждения создания ресурса
+        get_response: Response = GoogleMapsApi.get_place(place_id)

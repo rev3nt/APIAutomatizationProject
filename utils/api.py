@@ -8,13 +8,11 @@ class GoogleMapsApi:
     @staticmethod
     # Создание новой локации
     def create_new_place():
-        print("Метод POST")
-
         # Ссылка, которая используется для создания нового ресурса в API
         resource_url = "/maps/api/place/add/json"
         # Собираем ссылку для создания ресурса
-        create_location_url = base_url + resource_url + key
-        print(create_location_url)
+        post_url = base_url + resource_url + key
+        print(post_url)
 
         # Тело запроса
         body = {
@@ -32,11 +30,26 @@ class GoogleMapsApi:
         }
 
         # Получаем ответ от сервера на запрос по ссылке, также передаем в запрос тело
-        response = HttpMethods.post(create_location_url, body)
-        print("Ответ сервера получен")
+        post_response = HttpMethods.post(post_url, body)
 
         # Выводим содержимое ответа
-        print(response.text)
+        print(post_response.text)
 
-        # Возвращаем ответ
-        return response
+        # Возвращаем ответ сервера
+        return post_response
+
+    @staticmethod
+    # Получить новую локацию
+    def get_place(place_id):
+        # Ссылка для получения ресурса
+        resource_url = "/maps/api/place/get/json"
+        # Формируем ссылку для получения ресурса
+        get_url = base_url + resource_url + key + "&place_id=" + place_id
+        print(get_url)
+
+        # Делаем GET запрос по сформированный ссылке
+        get_response = HttpMethods.get(get_url)
+        print(get_response.text)
+
+        # Возвращаем ответ сервера
+        return get_response
