@@ -4,6 +4,7 @@ from utils.http_methods import HttpMethods
 base_url = "https://rahulshettyacademy.com"
 key = "?key=qaclick123"
 
+
 class GoogleMapsApi:
     @staticmethod
     # Создание новой локации

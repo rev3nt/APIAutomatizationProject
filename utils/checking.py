@@ -3,7 +3,7 @@ import json
 from requests import Response
 
 
-class Checking():
+class Checking:
     @staticmethod
     def check_status_code(response: Response, status_code):
         assert response.status_code == status_code, f"Провал. Статус код = {str(response.status_code)}"
