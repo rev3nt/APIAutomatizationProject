@@ -5,7 +5,7 @@ from requests import Response
 
 class Logger:
     # Формируем название файла из текущей даты в определенном формате
-    file_name = f'./logs/log_{str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))}.log'
+    file_name = f'C:/Users/user/PycharmProjects/APIAutomatizationProject/logs/log_{str(datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))}.log'
 
     # Метод для записи в файл
     @classmethod
