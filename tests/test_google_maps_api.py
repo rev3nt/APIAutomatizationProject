@@ -11,8 +11,11 @@ class TestCreatePlace():
         post_response: Response = GoogleMapsApi.create_new_place()
         # Добавляем проверку на статус код
         Checking.check_status_code(post_response, 200)
+        # Проверяем, что в ответе присутствуют все необходимые поля
         Checking.check_json_token(post_response, ['status', 'place_id', 'scope', 'reference', 'id'])
+        # Проверяем значение поля
         Checking.check_json_value(post_response, 'status', 'OK')
+        # Ищем слово внутри поля
         Checking.check_json_for_word(post_response, 'scope', 'APP')
 
         # Преобразуем ответ в json
