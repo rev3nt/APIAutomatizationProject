@@ -12,6 +12,8 @@ class TestCreatePlace():
         # Добавляем проверку на статус код
         Checking.check_status_code(post_response, 200)
         Checking.check_json_token(post_response, ['status', 'place_id', 'scope', 'reference', 'id'])
+        Checking.check_json_value(post_response, 'status', 'OK')
+        Checking.check_json_for_word(post_response, 'scope', 'APP')
 
         # Преобразуем ответ в json
         check_post = post_response.json()
@@ -25,6 +27,8 @@ class TestCreatePlace():
         Checking.check_status_code(get_response, 200)
         Checking.check_json_token(get_response,['location', 'accuracy', 'name', 'phone_number',
                                                 'address', 'types', 'website', 'language'])
+        Checking.check_json_value(get_response, 'accuracy', '50')
+        Checking.check_json_for_word(get_response, 'name', 'house')
 
         print("Метод PUT")
         # Вызываем метод PUT, чтобы изменить данные созданного ресурса
@@ -32,6 +36,8 @@ class TestCreatePlace():
         # Добавляем проверку на статус код
         Checking.check_status_code(put_response, 200)
         Checking.check_json_token(put_response, ['msg'])
+        Checking.check_json_value(put_response, 'msg', 'Address successfully updated')
+        Checking.check_json_for_word(put_response, 'msg', 'updated')
 
         print("Метод GET PUT")
         # Вызываем метод GET для подтверждения изменения ресурса
@@ -40,6 +46,8 @@ class TestCreatePlace():
         Checking.check_status_code(get_response, 200)
         Checking.check_json_token(get_response,['location', 'accuracy', 'name', 'phone_number',
                                                 'address', 'types', 'website', 'language'])
+        Checking.check_json_value(get_response, 'address', '100 Lenina street, RU')
+        Checking.check_json_for_word(get_response, 'accuracy', '50')
 
         print("Метод DELETE")
         # Удаляем созданный ресурс с помощью DELETE
@@ -47,6 +55,8 @@ class TestCreatePlace():
         # Добавляем проверку на статус код
         Checking.check_status_code(delete_response, 200)
         Checking.check_json_token(delete_response, ['status'])
+        Checking.check_json_value(delete_response, 'status', 'OK')
+        Checking.check_json_for_word(delete_response, 'status', 'OK')
 
         print("Метод GET DELETE")
         # Пробуем получить удаленный ресурс
@@ -54,5 +64,7 @@ class TestCreatePlace():
         # Добавляем проверку на статус код
         Checking.check_status_code(get_response, 404)
         Checking.check_json_token(get_response, ['msg'])
+        Checking.check_json_value(get_response, 'msg', 'Get operation failed, looks like place_id  doesn\'t exists')
+        Checking.check_json_for_word(get_response, 'msg', 'failed')
 
         print("Тестирование добавления, изменения и удаления новой локации прошло успешно!")
