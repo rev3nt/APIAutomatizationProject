@@ -3,7 +3,7 @@ from utils.api import GoogleMapsApi
 from utils.checking import Checking
 
 
-class Test_create_place():
+class TestCreatePlace():
     # Создание новой локации
     def test_create_new_place(self):
         print("Метод POST")
