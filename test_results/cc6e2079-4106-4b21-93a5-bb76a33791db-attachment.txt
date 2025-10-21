@@ -1,0 +1,42 @@
+Метод POST
+https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+{"status":"OK","place_id":"27c5a3f71493f80b0d1ca36015c0455b","scope":"APP","reference":"06c20bb464e79812091e5b893788412106c20bb464e79812091e5b8937884121","id":"06c20bb464e79812091e5b8937884121"}
+Успех. Статус код = 200
+Все поля присутствуют
+Значение OK находится в status
+Слово APP есть в поле scope
+Метод GET POST
+https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=27c5a3f71493f80b0d1ca36015c0455b
+{"location":{"latitude":"-38.383494","longitude":"33.427362"},"accuracy":"50","name":"Frontline house","phone_number":"(+91) 983 893 3937","address":"29, side layout, cohen 09","types":"shoe park,shop","website":"http:\/\/google.com","language":"French-IN"}
+Успех. Статус код = 200
+Все поля присутствуют
+Значение 50 находится в accuracy
+Слово house есть в поле name
+Метод PUT
+{"msg":"Address successfully updated"}
+Успех. Статус код = 200
+Все поля присутствуют
+Значение Address successfully updated находится в msg
+Слово updated есть в поле msg
+Метод GET PUT
+https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=27c5a3f71493f80b0d1ca36015c0455b
+{"location":{"latitude":"-38.383494","longitude":"33.427362"},"accuracy":"50","name":"Frontline house","phone_number":"(+91) 983 893 3937","address":"100 Lenina street, RU","types":"shoe park,shop","website":"http:\/\/google.com","language":"French-IN"}
+Успех. Статус код = 200
+Все поля присутствуют
+Значение 100 Lenina street, RU находится в address
+Слово 50 есть в поле accuracy
+Метод DELETE
+https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+{"status":"OK"}
+Успех. Статус код = 200
+Все поля присутствуют
+Значение OK находится в status
+Слово OK есть в поле status
+Метод GET DELETE
+https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=27c5a3f71493f80b0d1ca36015c0455b
+{"msg":"Get operation failed, looks like place_id  doesn't exists"}
+Успех. Статус код = 404
+Все поля присутствуют
+Значение Get operation failed, looks like place_id  doesn't exists находится в msg
+Слово failed есть в поле msg
+Тестирование добавления, изменения и удаления новой локации прошло успешно!
